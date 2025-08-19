@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Georgia Bulldogs Stats{% endblock %}
+
+{% block content %}
+
+<!-- format image to full page -->
+<style>
+    .full-width-image {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+    <h1>Georgia Bulldogs Football 2024 Stats</h1>
+
+    <p>With so much going on this time of year, its hard to keep track of your favortite football teams stats. Georgia happens to be my favorite football team, if it is also your
+        favorite then you are in luck. This website has 3 pages that show some of the major stats that ESPN tracks to determine the best team of each league!
+        This page will show you over all stats as well as having all links that this website contains. The two sub pages contain stats for the rank of their offense and defense.
+    </p>
+
+    <h2>Offense Stats</h2>
+    <ul><!-- Loop for offensive stats -->
+        {% for stat, value in offense_stats.items() %}
+            <li>{{ stat }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Defense Stats</h2>
+    <ol><!-- Loop for defensive stats -->
+        {% for stat, value in defense_stats.items() %}
+            <li>{{ stat }}: {{ value }}</li>
+        {% endfor %}
+    </ol>
+
+    <h3>External Links</h3>
+    <ul><!-- All links on home page for ease of access -->
+        <li><a href="https://www.espn.com/college-football/team/_/id/61/georgia-bulldogs" target="_blank">Georgia Bulldogs Football News on ESPN</a></li>
+        <li><a href="https://www.espn.com/college-football/team/stats/_/id/61" target="_blank">Georgia Bulldogs Football Stats on ESPN</a></li>
+        <li><a href="https://www.espn.com/college-football/stats/team" target="_blank">College Football Team Stats on ESPN</a></li>
+    </ul>
+<!-- Display home page picture -->
+<img src="{{ url_for('static', filename='images/home_page_image.jpg') }}" alt="Georgia Bulldogs" class="full-width-image">
+
+{% endblock %}

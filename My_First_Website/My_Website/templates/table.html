@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Player Statistics Table{% endblock %}
+
+{% block content %}
+
+<!-- format image to full page -->
+<style>
+    .full-width-image {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+<h1>Player Statistics</h1>
+<table border="1"><!-- Loop for table -->
+    {% for row in data %}
+    <tr>
+        {% for item in row %}
+        <td>{{ item }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+<!-- Display table picture -->
+<img src="{{ url_for('static', filename='images/UGA.jpg') }}" alt="Georgia Bulldogs" class="full-width-image">
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Georgia Offense Rank{% endblock %}
+
+{% block content %}
+
+<!-- format image to full page -->
+<style>
+    .full-width-image {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+    <h1>Georgia Bulldogs Offense Rankings 2024</h1>
+    <p>This year the Bulldogs have struggled on offense. They are ranked 11th in overall pass yards per game. 
+        This coming with 29 dropped passes by wide receivers. When the QB and receivers are on the same page,
+        the Bulldogs have no problems moving the football down the field. They also have a SOS(Strength Of Schedule)
+        ranking of #1 in the country. With an 11% chance that any other team with this exact same SOS would end 10-2 like they will.
+    </p><!-- Add better description of stats and add a link for dropped passes stat -->
+    <ol><!-- Loop for offensive rankings -->
+        {% for ranking, value in offense_rankings.items() %}
+            <li>{{ ranking }}: {{ value }}</li>
+        {% endfor %}
+    </ol>
+
+    <h2>External Links</h2>
+    <ul>
+        <li><a href="https://www.espn.com/college-football/team/stats/_/id/61" target="_blank">Georgia Bulldogs Football Stats on ESPN</a></li>
+    </ul>
+<!-- Display Bulldogs logo -->
+<img src="{{ url_for('static', filename='images/Bulldogs_Logo.jpg') }}" alt="Georgia Bulldogs" class="full-width-image">
+{% endblock %}

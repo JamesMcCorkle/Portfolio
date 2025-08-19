@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Georgia Defense Rank{% endblock %}
+
+{% block content %}
+
+<!-- format image to full page -->
+<style>
+    .full-width-image {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+    <h1>Georgia Bulldogs Defense Rankings 2024</h1>
+    <p>The Georgia Bulldogs Defense is currently ranked 15th in the country. They have proven themselves in the redzone many times allowing other teams only 18 points per game with most of those points coming in from 2 major games. 
+        The defense is truly the highlight of this years team. With the defense shining this bright, it tends to put the offense in the shadows. All that we can do is hope that the productivity on the defense continues to 
+        set up the offense in favorable position to score.
+    </p><!-- Update with more stats -->
+    <ol><!-- Loop for defensive stats -->
+        {% for ranking, value in defense_rankings.items() %}
+            <li>{{ ranking }}: {{ value }}</li>
+        {% endfor %}
+    </ol>
+
+    <h2>External Links</h2>
+    <ul>
+        <li><a href="https://www.espn.com/college-football/stats/team/_/view/defense" target="_blank">Georgia Bulldogs Football Stats on ESPN</a></li>
+    </ul>
+<!-- Display helmet picture -->
+<img src="{{ url_for('static', filename='images/Georgia_Helmet.jpg') }}" alt="Georgia Bulldogs" class="full-width-image">
+{% endblock %}
